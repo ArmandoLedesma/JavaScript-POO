@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Salarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            margin: 5px 0;
+            padding: 8px;
+            width: 200px;
+        }
+        button {
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .resultado {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Salarios</h1>
+
+    <h2>Empleado a Tiempo Completo</h2>
+    <label for="salarioMensual">Salario Mensual:</label>
+    <input type="number" id="salarioMensual" placeholder="Ej. 3000">
+    <button onclick="mostrarSalarioTiempoCompleto()">Calcular Salario</button>
+
+    <h2>Empleado por Horas</h2>
+    <label for="tarifaPorHora">Tarifa por Hora:</label>
+    <input type="number" id="tarifaPorHora" placeholder="Ej. 20">
+    <label for="horasTrabajadas">Horas Trabajadas:</label>
+    <input type="number" id="horasTrabajadas" placeholder="Ej. 120">
+    <button onclick="mostrarSalarioPorHoras()">Calcular Salario</button>
+
+    <div class="resultado" id="resultado"></div>
+
+    <script src="empleados.js"></script>
+    <script>
+        function mostrarSalarioTiempoCompleto() {
+            const salarioMensual = parseFloat(document.getElementById('salarioMensual').value);
+            const resultado = `Salario del empleado a tiempo completo: ${calcularSalarioTiempoCompleto(salarioMensual)}`;
+            document.getElementById('resultado').innerText = resultado;
+        }
+
+        function mostrarSalarioPorHoras() {
+            const tarifaPorHora = parseFloat(document.getElementById('tarifaPorHora').value);
+            const horasTrabajadas = parseFloat(document.getElementById('horasTrabajadas').value);
+            const resultado = `Salario del empleado por horas: ${calcularSalarioPorHoras(tarifaPorHora, horasTrabajadas)}`;
+            document.getElementById('resultado').innerText = resultado;
+        }
+    </script>
+</body>
+</html>
